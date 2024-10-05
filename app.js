@@ -2,12 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/user');
 const loggerMiddleware = require('./middleware/loggerMiddleware');
+const rateLimitMiddleware = require('./middleware/rateLimitMiddleware');
 
 const app = express();
 
 // Middleware
 app.use(bodyParser.json());
-app.use(loggerMiddleware);  // Use the logger middleware here
+app.use(loggerMiddleware);
+app.use(rateLimitMiddleware);
 
 // Routes
 app.use('/user', userRoutes);

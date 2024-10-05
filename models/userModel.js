@@ -1,4 +1,4 @@
-let users = require('../data/users.json'); // Optional, or just use an in-memory array
+let users = require('../data/users.json');
 
 module.exports = {
   getUsers: () => users,
